@@ -7,14 +7,14 @@
     <div class="d-flex order-0">
       <i class="fa-regular fa-compass me-2 navbar-brand d-flex align-items-center" style="color: #fe424d; font-size: 1.5rem;"></i>
       <span class="fw-semibold wanderlust navbar-brand d-flex align-items-center me-4" style="color: #fe424d" >WanderLust</span>
-      <a class="navbar-brand d-flex align-items-center me-4" href="/wanderlust">
+      <a class="navbar-brand d-flex align-items-center me-4" href="/">
         <span class="fw-semibold d-none d-sm-inline">Explore</span>
       </a>
     </div>
 
     <!-- Center: Search (will be pushed to middle on large screens) -->
     <div class="search-wrapper order-lg-1 mx-auto ">
-      <form class="d-flex" method="get" action="/wanderlust/search">
+      <form class="d-flex" method="get" action="/search">
         <input class="form-control me-2 search-inp" type="search" name="q" placeholder="Search destinations" />
         <button class="btn search-btn" type="submit">
           <i class="fa-solid fa-magnifying-glass"></i> <p>Search</p> 
@@ -33,23 +33,23 @@
 
         <!-- Explore text (visible only on xs screens) -->
         <li class="nav-item d-sm-none mb-2">
-          <a class="nav-link fw-semibold" href="/wanderlust">Explore</a>
+          <a class="nav-link fw-semibold" href="/">Explore</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/wanderlust/new">Airbnb your home</a>
+          <a class="nav-link" href="/new">Airbnb your home</a>
         </li>
 
         <% if (!currUser) { %>
           <li class="nav-item">
-            <a class="nav-link fw-bold" href="/wanderlust/account/signup">Sign up</a>
+            <a class="nav-link fw-bold" href="/account/signup">Sign up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-bold" href="/wanderlust/account/login">Log in</a>
+            <a class="nav-link fw-bold" href="/account/login">Log in</a>
           </li>
         <% } else { %>
           <li class="nav-item">
-            <a class="nav-link fw-bold" href="/wanderlust/account/logout">Log out</a>
+            <a class="nav-link fw-bold" href="/account/logout">Log out</a>
           </li>
         <% } %>
 

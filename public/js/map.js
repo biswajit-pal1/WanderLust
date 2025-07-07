@@ -3,7 +3,7 @@ mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
     container: 'map', // container ID
     center: listing.geometry.coordinates, // starting position [lng, lat]. Note that lat must be set between -90 and 90
-    zoom: 13 // starting zoom
+    zoom: 14 // starting zoom
 });
 
 const el = document.createElement('div');

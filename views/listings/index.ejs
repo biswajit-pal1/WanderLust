@@ -1,67 +1,67 @@
 <% layout("layouts/boilerplate") %>
 <div id="filters" class="px-3">
     <div class="filter">
-        <a href="/wanderlust/explore/trending">
+        <a href="/explore/trending">
             <div><i class="fa-solid fa-fire"></i></div>
             <p>Trending</p>
         </a>
     </div>
     <div class="filter">
-        <a href="/wanderlust/explore/rooms">
+        <a href="/explore/rooms">
             <div><i class="fa-solid fa-bed"></i></div>
             <p>Rooms</p>
         </a>
     </div>
     <div class="filter">
-        <a href="/wanderlust/explore/iconic-cities">
+        <a href="/explore/iconic-cities">
             <div><i class="fa-solid fa-mountain-city"></i></div>
             <p>Iconic Cities</p>
         </a>
     </div>
     <div class="filter">
-        <a href="/wanderlust/explore/mountains">
+        <a href="/explore/mountains">
             <div><i class="fa-solid fa-mountain"></i></div>
             <p>Mountains</p>
         </a>
     </div>
     <div class="filter">
-        <a href="/wanderlust/explore/castles">
+        <a href="/explore/castles">
             <div><i class="fa-brands fa-fort-awesome"></i></div>
             <p>Castles</p>
         </a>
     </div>
     <div class="filter">
-        <a href="/wanderlust/explore/amazing-pools">
+        <a href="/explore/amazing-pools">
             <div><i class="fa-solid fa-person-swimming"></i></div>
             <p>Amazing Pools</p>
         </a>
     </div>
     <div class="filter">
-        <a href="/wanderlust/explore/camping">
+        <a href="/explore/camping">
             <div><i class="fa-solid fa-tents"></i></div>
             <p>Camping</p>
         </a>
     </div>
     <div class="filter">
-        <a href="/wanderlust/explore/farms">
+        <a href="/explore/farms">
             <div><i class="fa-solid fa-cow"></i></div>
             <p>Farms</p>
         </a>
     </div>
     <div class="filter">
-        <a href="/wanderlust/explore/arctic">
+        <a href="/explore/arctic">
             <div><i class="fa-solid fa-snowflake"></i></div>
             <p>Arctic</p>
         </a>
     </div>
     <div class="filter">
-        <a href="/wanderlust/explore/domes">
+        <a href="/explore/domes">
             <div><i class="fa-solid fa-igloo"></i></div>
             <p>Domes</p>
         </a>
     </div>
     <div class="filter">
-        <a href="/wanderlust/explore/boats">
+        <a href="/explore/boats">
             <div><i class="fa-solid fa-ship"></i></div>
             <p>Boats</p>
         </a>
@@ -89,7 +89,7 @@
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-1 mt-3">
     
     <% for(listing of allListings) { %>
-    <a href="/wanderlust/<%= listing._id %>" class="listing-links">
+    <a href="/<%= listing._id %>" class="listing-links">
         <div class="card col listing-card">
             <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem;">
             <div class="card-img-overlay"></div>

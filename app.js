@@ -82,9 +82,9 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use("/wanderlust", listingRouter);
-app.use("/wanderlust/:id/reviews", reviewRouter);
-app.use("/wanderlust/account", userRouter);
+app.use("/", listingRouter);
+app.use("/:id/reviews", reviewRouter);
+app.use("/account", userRouter);
 
 
 

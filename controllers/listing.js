@@ -19,7 +19,7 @@ module.exports.showListing = async (req, res) => {
     const listing = await Listing.findById(id).populate({path: "reviews", populate: {path: "author"}}).populate("owner");
     if(!listing){
         req.flash("error", "Listing you are requested for does not exist!");
-        return res.redirect("/wanderlust");
+        return res.redirect("/");
     }
 
     res.render("./listings/show.ejs", {listing});
@@ -41,7 +41,7 @@ module.exports.createListing = async (req, res, next) => {
 
     await newListing.save();
     req.flash("success", "New Listing Created!");
-    res.redirect("/wanderlust");
+    res.redirect("/");
 };
 
 module.exports.renderEditForm = async (req, res) => {
@@ -49,7 +49,7 @@ module.exports.renderEditForm = async (req, res) => {
     const listing = await Listing.findById(id);
     if(!listing){
         req.flash("error", "Listing you are requested for does not exist!");
-        return res.redirect("/wanderlust");
+        return res.redirect("/");
     }
 
     let originalImageUrl = listing.image.url;
@@ -81,7 +81,7 @@ module.exports.updateListing = async (req, res) => {
         await listing.save();
     }
     req.flash("success", "Listing Updated!");
-    res.redirect(`/wanderlust/${id}`);
+    res.redirect(`/${id}`);
 };
 
 module.exports.destroyListing = async (req, res) => {
@@ -90,7 +90,7 @@ module.exports.destroyListing = async (req, res) => {
 
     if (!listing) {
         req.flash("error", "Listing not found!");
-        return res.redirect("/wanderlust");
+        return res.redirect("/");
     }
 
     // Delete image from Cloudinary
@@ -100,14 +100,14 @@ module.exports.destroyListing = async (req, res) => {
         } catch (err) {
             console.error("Failed to delete image from Cloudinary:", err);
             req.flash("error", "Failed to delete image from Cloudinary.");
-            return res.redirect("/wanderlust");
+            return res.redirect("/");
         }
     }
 
     // Delete listing from MongoDB
     await Listing.findByIdAndDelete(id);
     req.flash("success", "Listing Deleted!");
-    res.redirect("/wanderlust");
+    res.redirect("/");
 };
 
 module.exports.searchListing = async (req, res) => {
@@ -115,7 +115,7 @@ module.exports.searchListing = async (req, res) => {
 
     if (!searchQuery) {
         req.flash('error', 'Please enter a search term.');
-        return res.redirect('/wanderlust');
+        return res.redirect('/');
     }
 
     // Case-insensitive partial match (e.g., title contains "goa")

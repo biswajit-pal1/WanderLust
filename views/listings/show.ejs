@@ -28,8 +28,8 @@
             <!-- Owner Action Buttons -->
             <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
                 <div class="d-flex justify-content-start gap-3 mb-4">
-                    <a href="/wanderlust/<%= listing._id %>/edit" class="btn btn-outline-primary">Edit</a>
-                    <form method="POST" action="/wanderlust/<%= listing._id %>?_method=DELETE">
+                    <a href="/<%= listing._id %>/edit" class="btn btn-outline-primary">Edit</a>
+                    <form method="POST" action="/<%= listing._id %>?_method=DELETE">
                         <button class="btn btn-outline-danger">Delete</button>
                     </form>
                 </div>
@@ -40,7 +40,7 @@
                 <div class="card shadow-sm border-0 mb-5 p-4">
                     <div class="card-body p-3">
                         <h4 class="mb-4">Leave a Review</h4>
-                        <form action="/wanderlust/<%= listing._id %>/reviews" method="POST" class="needs-validation" novalidate>
+                        <form action="/<%= listing._id %>/reviews" method="POST" class="needs-validation" novalidate>
                             <div class="mb-3">
                                 <label class="form-label">Rating</label>
                                 <fieldset class="starability-slot">
@@ -74,7 +74,7 @@
                                         <p class="starability-result mb-2" data-rating="<%= review.rating %>"></p>
                                         <p class="card-text text-muted"><%= review.comment %></p>
                                         <% if(currUser && currUser._id.equals(review.author._id)) { %>
-                                            <form method="POST" action="/wanderlust/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                                            <form method="POST" action="/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
                                                 <button class="btn btn-sm btn-outline-danger">Delete</button>
                                             </form>
                                         <% } %>
