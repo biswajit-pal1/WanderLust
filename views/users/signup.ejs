@@ -1,0 +1,59 @@
+<% layout("layouts/boilerplate") %>
+
+<style>
+  .was-validated input.form-control:valid,
+  .was-validated input.form-control:invalid,
+  input.form-control.is-valid,
+  input.form-control.is-invalid {
+    background-image: none !important;
+    padding-right: 2.5rem;
+}
+</style>
+
+<div class="d-flex justify-content-center align-items-start" style="margin-top: 7rem; margin-bottom: 7rem;">
+  <div class="card shadow-sm p-4 w-100" style="max-width: 360px; border-radius: 1rem;">
+    
+    <!-- Logo/Header -->
+    <div class="text-center mb-4">
+      <i class="fa-regular fa-compass" style="font-size: 2rem; color: #fe424d;"></i>
+      <h4 class="mt-2 fw-bold">WanderLust</h4>
+    </div>
+
+    <!-- Signup Form -->
+    <form action="/wanderlust/account/signup" method="post" novalidate class="needs-validation">
+      <div class="mb-3">
+        <input type="text" id="username" name="username" class="form-control form-control-sm"
+               placeholder="Username" required>
+        <div class="invalid-feedback">Please enter a valid username</div>
+      </div>
+
+      <div class="mb-3">
+        <input type="email" id="email" name="email" class="form-control form-control-sm"
+               placeholder="Email" required>
+        <div class="invalid-feedback">Please enter a valid email</div>
+      </div>
+
+      <div class="mb-3 position-relative">
+        <input type="password" id="password" name="password" class="form-control form-control-sm pe-5"
+               placeholder="Password" required>
+        <i class="fa-regular fa-eye-slash toggle-password"></i>
+        <div class="invalid-feedback">Please enter your password</div>
+      </div>
+
+      <div class="d-grid">
+        <button class="btn btn-primary btn-sm" type="submit">Sign Up</button>
+      </div>
+    </form>
+
+    <!-- Divider -->
+    <div class="text-center my-3 text-muted">──────── or ────────</div>
+
+    <!-- Log in redirect -->
+    <div class="text-center mt-2">
+      <p class="mb-0">Already have an account? 
+        <a href="/wanderlust/account/login" class="text-decoration-none">Log in</a>
+      </p>
+    </div>
+
+  </div>
+</div>
