@@ -97,7 +97,7 @@ wanderlust/
 ## 🧑‍💻 Author
 
 **Your Name**\
-📧 [bpal69057@gmail.com](mailto:bpal69057@gmail.com)\
+📧 [bpal69057@gmail.com](mailto:bpal69057@gmail.com)  
 🔗 [GitHub](https://github.com/biswajit-pal1)
 
 ---
