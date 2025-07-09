@@ -94,24 +94,12 @@ wanderlust/
 
 ---
 
-## 🧪 Sample Test Users
-
-| Username | Password |
-| -------- | -------- |
-| demo1    | 123456   |
-| demo2    | 123456   |
-
----
-
 ## 🧑‍💻 Author
 
 **Your Name**\
-📧 [your.email@example.com](mailto\:your.email@example.com)\
-🔗 [GitHub](https://github.com/yourusername)
+📧 [bpal69057@gmail.com](mailto\:bpal69057@gmail.com)\
+🔗 [GitHub](https://github.com/biswajit-pal1)
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
 

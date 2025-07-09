@@ -4,6 +4,7 @@ const mapToken = process.env.MAP_TOKEN;
 const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 const {cloudinary} = require("../cloudConfig.js");
 const formatSlug = require("../utils/formatSlug.js");
+const mongoose = require("mongoose");
 
 module.exports.index = async (req, res) => {
     let allListings = await Listing.find({});
@@ -16,6 +17,9 @@ module.exports.renderNewForm = (req, res) => {
 
 module.exports.showListing = async (req, res) => {
     let {id} = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).render("404.ejs");
+    }
     const listing = await Listing.findById(id).populate({path: "reviews", populate: {path: "author"}}).populate("owner");
     if(!listing){
         req.flash("error", "Listing you are requested for does not exist!");
@@ -59,10 +63,38 @@ module.exports.renderEditForm = async (req, res) => {
 
 module.exports.updateListing = async (req, res) => {
     let {id} = req.params;
-    let listing = await Listing.findByIdAndUpdate(id, {...req.body.listing}, { new: true });
+    const updatedData = { ...req.body.listing };
 
-    if (typeof req.file !== "undefined") {
-        // 1. Delete old image from Cloudinary
+    let listing = await Listing.findById(id);
+
+    if (!listing) {
+        req.flash("error", "Listing not found.");
+        return res.redirect("/");
+    }
+
+    const locationChanged = updatedData.location && updatedData.location !== listing.location;
+
+    // Update listing fields
+    listing.set(updatedData);
+
+    // If location changed, update geometry using Mapbox
+    if (locationChanged) {
+        try {
+        const geoResponse = await geocodingClient.forwardGeocode({
+            query: updatedData.location,
+            limit: 1
+        }).send();
+
+        listing.geometry = geoResponse.body.features[0].geometry;
+        } catch (err) {
+        console.error("Geocoding failed:", err);
+        req.flash("error", "Failed to update location coordinates.");
+        }
+    }
+
+    // If a new image is uploaded
+    if (req.file) {
+        // Delete old image from Cloudinary
         if (listing.image && listing.image.filename) {
             try {
                 await cloudinary.uploader.destroy(listing.image.filename);
@@ -72,14 +104,14 @@ module.exports.updateListing = async (req, res) => {
             }
         }
 
-        // 2. Save new image info
+        // Save new image info
         listing.image = {
             url: req.file.path,
             filename: req.file.filename
         };
-
-        await listing.save();
     }
+
+  await listing.save();
     req.flash("success", "Listing Updated!");
     res.redirect(`/${id}`);
 };
