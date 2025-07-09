@@ -223,14 +223,8 @@ body{
     align-items: center;
     flex: 0 0 auto;
     white-space: nowrap;
-}
-
-/* Push tax-toggle to end only on medium and up */
-@media (min-width: 768px) {
-    .tax-toggle {
-        margin-left: auto;
-        margin-bottom: 1.5rem;
-    }
+    margin-left: auto;
+    margin-bottom: 1.25rem;
 }
 
 /* Search in Navbar */
@@ -270,7 +264,6 @@ body{
     cursor: pointer; 
     display: none
 }
-
 
 /* Navbar */
 

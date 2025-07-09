@@ -89,7 +89,7 @@ app.use("/account", userRouter);
 
 
 app.use((req, res, next) => {
-    next(new ExpressError(404, "Page Not Found"));
+    res.status(404).render("404.ejs");
 });
 
 app.use((err, req, res, next) => {

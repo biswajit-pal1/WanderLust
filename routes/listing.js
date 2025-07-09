@@ -6,7 +6,6 @@ const {isLoggedIn, isOwner, validateListing} = require("../middleware.js");
 const multer = require("multer");
 const {storage} = require("../cloudConfig.js");
 const upload = multer({storage});
-const formatSlug = require("../utils/formatSlug.js");
 
 const listingController = require("../controllers/listing.js");
 

@@ -28,9 +28,9 @@
             <!-- Owner Action Buttons -->
             <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
                 <div class="d-flex justify-content-start gap-3 mb-4">
-                    <a href="/<%= listing._id %>/edit" class="btn btn-outline-primary">Edit</a>
+                    <a href="/<%= listing._id %>/edit" class="btn btn-dark edit-btn">Edit</a>
                     <form method="POST" action="/<%= listing._id %>?_method=DELETE">
-                        <button class="btn btn-outline-danger">Delete</button>
+                        <button class="btn btn-dark">Delete</button>
                     </form>
                 </div>
             <% } %>
@@ -55,7 +55,7 @@
                                 <textarea name="review[comment]" id="comment" rows="4" class="form-control" required></textarea>
                                 <div class="invalid-feedback">Please enter a comment</div>
                             </div>
-                            <button class="btn btn-dark">Submit</button>
+                            <button class="btn btn-dark edit-btn">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                                         <p class="card-text text-muted"><%= review.comment %></p>
                                         <% if(currUser && currUser._id.equals(review.author._id)) { %>
                                             <form method="POST" action="/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
-                                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                                <button class="btn btn-dark">Delete</button>
                                             </form>
                                         <% } %>
                                     </div>

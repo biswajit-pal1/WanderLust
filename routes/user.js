@@ -12,7 +12,7 @@ router.route("/signup")
 
 router.route("/login")
     .get(userController.renderLoginForm)
-    .post(saveRedirectUrl, passport.authenticate("local", {failureRedirect: "/wanderlust/account/login", failureFlash: true}), 
+    .post(saveRedirectUrl, passport.authenticate("local", {failureRedirect: "/account/login", failureFlash: true}), 
     userController.login);
 
 router.get("/logout", userController.logout);
