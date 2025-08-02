@@ -31,7 +31,7 @@ if (taxSwitch) {
   });
 }
 
-
+//Password toggler button
 document.addEventListener('DOMContentLoaded', () => {
   const toggleIcons = document.querySelectorAll('.toggle-password');
 

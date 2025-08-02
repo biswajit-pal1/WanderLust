@@ -60,12 +60,15 @@ npm install
 
 ### 📁 Environment Variables
 
-Create a `.env` file in the root directory:
+Create a `.env` file in the root directory or rename `.env.example` and add your credentials:
 
 ```env
+CLOUD_NAME=your_cloudinary_cloud_name
+CLOUD_API_KEY=your_cloudinary_api_key
+CLOUD_API_SECRET=your_cloudinary_api_secret
+MAP_TOKEN=your_mapbox_token
 ATLASDB_URL=your_mongodb_atlas_url
 SECRET=your_session_secret
-MAP_TOKEN=your_mapbox_token
 ```
 
 ### ▶️ Run the Server
@@ -89,7 +92,7 @@ wanderlust/
 ├── utils/               # Custom error handling
 ├── app.js               # Main Express app
 ├── package.json
-└── .env
+└── .env.example         # Sample environment variable configuration
 ```
 
 ---
@@ -101,5 +104,3 @@ wanderlust/
 🔗 [GitHub](https://github.com/biswajit-pal1)
 
 ---
-
-
